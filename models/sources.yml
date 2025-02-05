@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: pgparquet_repo_analysis
+
+    tables:
+      - name: pg_parquet_events

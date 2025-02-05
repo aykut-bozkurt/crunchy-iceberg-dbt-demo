@@ -1,0 +1,119 @@
+
+version: 2
+
+models:
+  - name: daily_stars
+    description: "A table that shows the number of stars pg_parquet repo has received on a given day"
+    columns:
+      - name: created_at
+        description: "The day the stars were counted"
+        tests:
+          - unique
+          - not_null
+  
+      - name: stars
+        description: "The number of stars pg_parquet has received on a given day"
+        tests:
+          - not_null
+
+  - name: daily_forks
+    description: "A table that shows how many times pg_parquet repo has been forked on a given day"
+    columns:
+      - name: created_at
+        description: "The day the forks were created"
+        tests:
+          - unique
+          - not_null
+  
+      - name: forks
+        description: "The times pg_parquet has been forked on a given day"
+        tests:
+          - not_null
+
+  - name: daily_contributor_activity
+    description: "A table that shows how many times pg_parquet repo has been forked on a given day"
+    columns:
+      - name: created_at
+        description: "The day the activity was recorded"
+        tests:
+          - not_null
+  
+      - name: contributor
+        description: "The contributor who has contributed to pg_parquet"
+        tests:
+          - not_null
+
+      - name: commits
+        description: "The number of commits the contributor has made to pg_parquet"
+        tests:
+          - not_null
+
+      - name: issues_opened
+        description: "The number of issues the contributor has opened on pg_parquet"
+        tests:
+          - not_null
+
+      - name: pull_requests
+        description: "The number of pull requests the contributor has opened on pg_parquet"
+        tests:
+          - not_null
+
+  - name: pr_merge_times
+    description: "A table that shows how long it took for a pull request to be merged"
+    columns:
+      - name: pr_id
+        description: "The number of the pull request"
+        tests:
+          - unique
+          - not_null
+
+      - name: created_at
+        description: "The day the pull request was opened"
+        tests:
+          - not_null
+  
+      - name: merged_at
+        description: "The day the pull request was merged"
+        tests:
+          - not_null
+
+      - name: hours_to_merge
+        description: "The number of hours it took for the pull request to be merged"
+        tests:
+          - not_null
+
+  - name: daily_event_types
+    description: "A table that shows the trend of different events over time"
+    columns:
+      - name: created_at
+        description: "The day the event was recorded"
+        tests:
+          - not_null
+
+      - name: event_type
+        description: "The type of event that was recorded"
+        tests:
+          - not_null
+
+      - name: event_count
+        description: "The number of times the event occurred on a given day"
+        tests:
+          - not_null
+
+  - name: daily_comments
+    description: "A table that shows the number of unique commenters on pg_parquet repo on a given day"
+    columns:
+      - name: created_at
+        description: "The day the comments were made"
+        tests:
+          - not_null
+  
+      - name: commenter
+        description: "The commenter who made the comments"
+        tests:
+          - not_null
+   
+      - name: comments
+        description: "The number of comments the commenter made on a given day"
+        tests:
+          - not_null
