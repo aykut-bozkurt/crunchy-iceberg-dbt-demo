@@ -1,8 +1,5 @@
 
-# Name your project! Project names should contain only lowercase characters
-# and underscores. A good package name should reflect your organization's
-# name or the intended use of these models
-name: 'gh_events_analysis'
+name: 'crunchy_gh_events'
 version: '1.0.0'
 
 # This setting configures which "profile" dbt uses for this project.
@@ -24,7 +21,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 models:
-  gh_events_analysis:
-    pg_parquet_repo_analysis:
-      +schema: pgparquet_repo_analysis
+  crunchy_gh_events:
+    crunchy_gh_events:
+      +schema: crunchy_gh
       +materialized: table

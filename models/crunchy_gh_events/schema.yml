@@ -3,58 +3,71 @@ version: 2
 
 models:
   - name: daily_stars
-    description: "A table that shows the number of stars pg_parquet repo has received on a given day"
+    description: "A table that shows the number of stars CrunchyData repos have received on a given day"
     columns:
       - name: created_at
         description: "The day the stars were counted"
         tests:
-          - unique
+          - not_null
+
+      - name: repo
+        description: "The repo name"
+        tests:
           - not_null
   
       - name: stars
-        description: "The number of stars pg_parquet has received on a given day"
+        description: "The number of stars the repo has received on a given day"
         tests:
           - not_null
 
   - name: daily_forks
-    description: "A table that shows how many times pg_parquet repo has been forked on a given day"
+    description: "A table that shows how many times CrunchyData repos have been forked on a given day"
     columns:
       - name: created_at
         description: "The day the forks were created"
         tests:
-          - unique
+          - not_null
+
+      - name: repo
+        description: "The repo name"
+        tests:
           - not_null
   
       - name: forks
-        description: "The times pg_parquet has been forked on a given day"
+        description: "The times CrunchyData repos have been forked on a given day"
         tests:
           - not_null
 
   - name: daily_contributor_activity
-    description: "A table that shows how many times pg_parquet repo has been forked on a given day"
+    description: "A table that shows how many times CrunchyData repos have been forked on a given day"
     columns:
       - name: created_at
         description: "The day the activity was recorded"
         tests:
           - not_null
+      
+      - name: repo
+        description: "The repo name"
+        tests:
+          - not_null
   
       - name: contributor
-        description: "The contributor who has contributed to pg_parquet"
+        description: "The contributor name"
         tests:
           - not_null
 
       - name: commits
-        description: "The number of commits the contributor has made to pg_parquet"
+        description: "The number of commits by the contributor on a given day"
         tests:
           - not_null
 
       - name: issues_opened
-        description: "The number of issues the contributor has opened on pg_parquet"
+        description: "The number of issues the contributor has opened on a given day"
         tests:
           - not_null
 
       - name: pull_requests
-        description: "The number of pull requests the contributor has opened on pg_parquet"
+        description: "The number of pull requests the contributor has opened on a given day"
         tests:
           - not_null
 
@@ -64,7 +77,11 @@ models:
       - name: pr_id
         description: "The number of the pull request"
         tests:
-          - unique
+          - not_null
+
+      - name: repo
+        description: "The repo name"
+        tests:
           - not_null
 
       - name: created_at
@@ -90,6 +107,11 @@ models:
         tests:
           - not_null
 
+      - name: repo
+        description: "The repo name"
+        tests:
+          - not_null
+
       - name: event_type
         description: "The type of event that was recorded"
         tests:
@@ -101,15 +123,20 @@ models:
           - not_null
 
   - name: daily_comments
-    description: "A table that shows the number of unique commenters on pg_parquet repo on a given day"
+    description: "A table that shows the number of unique commenters on CrunchyData repos on a given day"
     columns:
       - name: created_at
         description: "The day the comments were made"
         tests:
           - not_null
   
+      - name: repo
+        description: "The repo name"
+        tests:
+          - not_null
+
       - name: commenter
-        description: "The commenter who made the comments"
+        description: "The commenter name"
         tests:
           - not_null
    
